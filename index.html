@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> PENILAIAN MUNAQASYAH TPQ GOWA </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <script src="./MUNAQASYAH.js">
+			function openIt() {
+				const url = 'https://script.google.com/macros/s/AKfycbxQMzOR8fKNnHLbU3-qG21UEFV2ZpkMfwu0xYEAZn2Bd3lRoJsSoWA1AubYDDPMZ8yPwA/exec';
+				window.open(url);
+			}
+	 </script>
+   </head>
+<body>
+  <div class="container">
+    <div class="title"style="text-align: center;">PENILAIAN MUNAQASYAH TPQ TAHAP 1 TAHUN 2024</div>
+    <div class="content">
+     <form name="#">
+        <div id="form_alerts"></div>
+        <div class="input-box";">
+                    <div class="input-box">
+             <label for="Jenis_Penilaian" class="form-label">Jenis Penilaian</label>
+              <select type="text" id="countySel" name="Jenis_Penilaian" class="form-control" placeholder="Masukan jenis penilaian" required>
+			<option value="" selected="selected">--Pilih jenis penilaian--</option>
+		</select>
+         <div class="input-box">
+             <label for="Nama_TPQ" class="form-label">Nama TPQ</label>
+              <select type="text" id="stateSel" name="Nama_TPQ" class="form-control" placeholder="Masukan nama TPQ" required>
+			<option value="" selected="selected">--Pilih nama TPQ--</option>
+		</select>
+           </div>
+             <label for="Nama_Santri" class="form-label">Nomor dan Nama Santri</label>
+              <select type="text" id="districtSel" name="Nama_Santri" class="form-control" placeholder="Masukan nama santri" required>
+			<option value="" selected="selected">--Pilih nama santri--</option>
+		</select>
+
+          </div>
+				 <div class="input-box">
+           <label for="Nilai" class="form-label">Nilai</label>
+              <input type="text" id="Nilai" name="Nilai" class="form-control" placeholder="Masukan nilai" onsubmit="return true">
+          </div>
+        <div class="button">
+          <input type="submit" value="Kirim Nilai">
+        </div>
+		<div class="button">
+          <input type="button" value="Cek Nilai" onclick="window.open('https://script.google.com/macros/s/AKfycbxQMzOR8fKNnHLbU3-qG21UEFV2ZpkMfwu0xYEAZn2Bd3lRoJsSoWA1AubYDDPMZ8yPwA/exec')" />
+		  </button>
+		</div>
+	  </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxQMzOR8fKNnHLbU3-qG21UEFV2ZpkMfwu0xYEAZn2Bd3lRoJsSoWA1AubYDDPMZ8yPwA/exec'
+        const form = document.forms['#']
+        
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Data Berhasil Terkirim"))
+            .catch(error => alert("Data Gagal Dikirim"))
+        })
+    </script>
+
+</body>
+</html>
